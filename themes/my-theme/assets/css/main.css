@@ -1,22 +1,127 @@
+:root {
+  --body-margin-right: max(24px, env(safe-area-inset-right));
+  --body-margin-left: max(24px, env(safe-area-inset-left));
+  --layer-header: 10;
+  --footer-height: 48px;
+}
+
+html {
+  overflow-x: hidden;
+}
+
 body {
-  color: #222;
-  font-family: sans-serif;
+  color: #e4e4e4;
+  background-color: #2b2d30;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.5;
-  margin: 1rem;
-  max-width: 768px;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 header {
-  border-bottom: 1px solid #222;
-  margin-bottom: 1rem;
+  border-bottom: 1px solid #454545;
+  padding-bottom: 1rem;
+}
+
+nav > ul {
+  display: none;
+  padding-left: 0px;
+  list-style: none;
+}
+
+nav > ul > li:last-child {
+  margin-left: 15px;
+}
+
+main {
+  min-height: calc(100vh - var(--footer-height));
+  margin-bottom: 135px;
 }
 
 footer {
-  border-top: 1px solid #222;
-  margin-top: 1rem;
+  border-top: 1px solid #454545;
+  color: #6b6b6b;
+  position: relative;
+  height: var(--footer-height);
+  width: calc(100% + var(--body-margin-right) + var(--body-margin-left));
+  left: calc(-1 * var(--body-margin-left));
+}
+
+footer > div {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 > a {
+  text-decoration: none;
 }
 
 a {
-  color: #00e;
+  color: rgb(255, 255, 255);
+}
+
+a:hover {
   text-decoration: none;
+}
+
+footer a {
+  color: #6b6b6b;
+}
+
+p:has(> a) {
+  margin: 0px;
+}
+
+p:not(:has(> a)) {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: #bababa;
+}
+
+p > em {
+  color: #72757a;
+}
+
+p:has(> em) {
+  margin-top: 0px;
+}
+
+h4 {
+  margin-top: 35px;
+  margin-bottom: 0px;
+  font-size: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+h2:has(~ p) {
+  margin-top: 35px;
+  margin-bottom: 0px;
+}
+
+h1 {
+  margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 768px) {
+  main,
+  header {
+    max-width: 1072px;
+  }
+
+  header {
+    margin: auto;
+  }
+
+  main {
+    margin: 0px auto 135px;
+  }
 }
