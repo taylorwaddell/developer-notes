@@ -1,0 +1,7 @@
+<aside>
+  <ul>
+    {{ range .Site.RegularPages.ByTitle }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+</aside>
